@@ -1,5 +1,8 @@
-﻿using Gestor_Contraseñas.Views.UserControls;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -10,18 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Gestor_Contraseñas
+namespace Gestor_Contraseñas.Views.UserControls
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Home.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Home : UserControl
     {
-        public MainWindow()
+        public Home()
         {
             InitializeComponent();
-            // Passes the main menu to the header
-            HeaderControl.Initialize(MainMenuControl);
         }
     }
 }

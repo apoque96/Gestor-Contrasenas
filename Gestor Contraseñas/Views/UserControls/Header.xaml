@@ -11,14 +11,21 @@
             <Button  Background="Black" Margin="10 10 10 10">
                 <Image Source="/Images/settings.png"  />
             </Button>
-            <Button Background="Black" Margin="10 10 10 10" Foreground="WhiteSmoke">
+            <Button Background="Black" Margin="10 10 10 10" Foreground="WhiteSmoke" 
+                    Name="NewAccount" Click="NewAccount_Click">
                 Add New Account
             </Button>
-            <Button Background="Black" Margin="10 10 10 10" Foreground="WhiteSmoke">
+            <Button Background="Black" Margin="10 10 10 10" Foreground="WhiteSmoke"
+                    Name="ExportFile" Click="ExportFile_Click">
                 Export to file
             </Button>
-            <Button Background="Black" Margin="10 10 10 10" Foreground="WhiteSmoke">
+            <Button Background="Black" Margin="10 10 10 10" Foreground="WhiteSmoke"
+                    Name="LoadFile" Click="LoadFile_Click">
                 Load Account File
+            </Button>
+            <Button Background="Black" Margin="10 10 10 10" Foreground="WhiteSmoke"
+        Name="Home" Click="Home_Click">
+                Home
             </Button>
         </StackPanel>
     </Grid>

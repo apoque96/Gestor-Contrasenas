@@ -9,11 +9,12 @@
     <Grid x:Name="MainGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
-            <RowDefinition />
+            <RowDefinition Height="*"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 
-        <usercontrols:Header/>
+        <usercontrols:Header x:Name="HeaderControl" />
+        <usercontrols:MainMenu Grid.Row="1" x:Name="MainMenuControl" />
         <Rectangle Grid.Row="2" Fill="Black" />
     </Grid>
 </Window>

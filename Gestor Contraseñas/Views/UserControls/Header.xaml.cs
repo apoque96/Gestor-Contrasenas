@@ -20,9 +20,39 @@ namespace Gestor_Contraseñas.Views.UserControls
     /// </summary>
     public partial class Header : UserControl
     {
+        private MainMenu mainMenu;
+
         public Header()
         {
             InitializeComponent();
+        }
+
+        //Initialize method for changing the menu
+        public void Initialize(MainMenu mainMenu)
+        {
+            this.mainMenu = mainMenu;
+        }
+
+        private void NewAccount_Click(object sender, RoutedEventArgs e)
+        {
+            if(mainMenu != null)
+                mainMenu.SwitchToAccountForm();
+        }
+
+        private void ExportFile_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void LoadFile_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Home_Click(object sender, RoutedEventArgs e)
+        {
+            if (mainMenu != null)
+                mainMenu.SwitchToHome();
         }
     }
 }
