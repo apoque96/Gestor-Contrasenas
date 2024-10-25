@@ -3,10 +3,18 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Gestor_Contraseñas"
+        xmlns:local="clr-namespace:Gestor_Contraseñas" xmlns:usercontrols="clr-namespace:Gestor_Contraseñas.Views.UserControls"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Grid x:Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
 
+        <usercontrols:Header x:Name="HeaderControl" />
+        <usercontrols:MainMenu Grid.Row="1" x:Name="MainMenuControl" />
+        <Rectangle Grid.Row="2" Fill="Black" />
     </Grid>
 </Window>

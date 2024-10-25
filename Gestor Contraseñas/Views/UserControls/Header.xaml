@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="Gestor_Contraseñas.Views.UserControls.Header"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Gestor_Contraseñas.Views.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <StackPanel Orientation="Horizontal" Background="Black">
+            <Button  Background="Black" Margin="10 10 10 10">
+                <Image Source="/Images/settings.png"  />
+            </Button>
+            <Button Background="Black" Margin="10 10 10 10" Foreground="WhiteSmoke" 
+                    Name="NewAccount" Click="NewAccount_Click">
+                Add New Account
+            </Button>
+            <Button Background="Black" Margin="10 10 10 10" Foreground="WhiteSmoke"
+                    Name="ExportFile" Click="ExportFile_Click">
+                Export to file
+            </Button>
+            <Button Background="Black" Margin="10 10 10 10" Foreground="WhiteSmoke"
+                    Name="LoadFile" Click="LoadFile_Click">
+                Load Account File
+            </Button>
+            <Button Background="Black" Margin="10 10 10 10" Foreground="WhiteSmoke"
+        Name="Home" Click="Home_Click">
+                Home
+            </Button>
+        </StackPanel>
+    </Grid>
+</UserControl>
