@@ -29,44 +29,52 @@
 
 
             <TextBlock Grid.Row="2" Grid.Column="0" Text="Site Name:" VerticalAlignment="Top" Margin="5,51,5,0"/>
-            <TextBox Grid.Row="2" Grid.Column="1" Margin="0,51,50,1" Width="200"/>
+            <TextBox Grid.Row="2" Grid.Column="1" Margin="0,51,50,1" Width="200" x:Name="tbSiteName"/>
 
             <TextBlock Grid.Row="2" Grid.Column="2" Text="Username:" VerticalAlignment="Top" Margin="10,49,0,0"/>
-            <TextBox Grid.Row="2" Grid.Column="3" Margin="10,49,40,3" Width="200"/>
+            <TextBox Grid.Row="2" Grid.Column="3" Margin="10,49,40,3" Width="200" x:Name="tbUsername"/>
 
             <TextBlock Grid.Row="6" Grid.Column="0" Text="Password:" VerticalAlignment="Top" Margin="5,10,5,0"/>
-            <PasswordBox Grid.Row="6" Grid.Column="1" Margin="0,10,50,292" Width="200"/>
+            <PasswordBox Grid.Row="6" Grid.Column="1" Margin="0,10,50,292" Width="200" x:Name="tbPassword"/>
 
             <TextBlock Grid.Row="6" Grid.Column="2" Text="URL:" VerticalAlignment="Top" Margin="10,8,0,0"/>
-        <TextBox Grid.Row="6" Grid.Column="3" Margin="10,8,40,294" Width="200"/>
+            <TextBox Grid.Row="6" Grid.Column="3" Margin="10,8,40,294" Width="200" x:Name="tbUrl"/>
 
             <TextBlock Grid.Row="6" Grid.Column="0" Text="Notes:" VerticalAlignment="Top" Margin="10,79,0,0"/>
-            <TextBox Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" Margin="0,57,52,203" Height="60" TextWrapping="Wrap" Grid.RowSpan="2"/>
+            <TextBox Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" Margin="0,57,52,203" Height="60" TextWrapping="Wrap" Grid.RowSpan="2" x:Name="tbNotes"/>
 
             <TextBlock Grid.Row="6" Grid.Column="0" Text="Extra Fields:" VerticalAlignment="Top" Margin="10,149,0,0"/>
             <StackPanel Grid.Row="6" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Left" Margin="5,128,0,128" Grid.Column="1">
-                <TextBox Width="100" Margin="5" Height="36"/>
-                <TextBox Width="100" Margin="5" Height="36"/>
-                <TextBox Width="100" Margin="5" Height="36"/>
+                <TextBox Width="100" Margin="5" Height="36" x:Name="tbExtra1"/>
+                <TextBox Width="100" Margin="5" Height="36" x:Name="tbExtra2"/>
+                <TextBox Width="100" Margin="5" Height="36" x:Name="tbExtra3"/>
+                <TextBox Width="100" Margin="5" Height="36" x:Name="tbExtra4"/>
+                <TextBox Width="100" Margin="5" Height="36" x:Name="tbExtra5"/>
             </StackPanel>
 
             <TextBlock Grid.Row="6" Grid.Column="2" Text="Tags:" VerticalAlignment="Top" Margin="10,266,0,0"/>
-            <TextBox Grid.Row="6" Grid.ColumnSpan="2" Margin="80,266,25,18" Grid.Column="2"/>
+            <TextBox Grid.Row="6" Grid.ColumnSpan="2" Margin="80,266,25,18" Grid.Column="2" x:Name="tbTags"/>
 
             <TextBlock Grid.Row="6" Grid.Column="0" Text="Creation Date:" VerticalAlignment="Top" Margin="10,205,0,0"/>
-            <DatePicker Grid.Row="6" Grid.Column="1" Margin="0,205,10,77"/>
+            <DatePicker Grid.Row="6" Grid.Column="1" Margin="0,205,10,77" x:Name="dpCreationDate"/>
 
             <TextBlock Grid.Row="6" Grid.Column="2" Text="Update Date:" VerticalAlignment="Top" Margin="10,208,0,0"/>
-            <DatePicker Grid.Row="6" Grid.Column="2" Margin="107,205,52,77" Grid.ColumnSpan="2"/>
+            <DatePicker Grid.Row="6" Grid.Column="2" Margin="107,205,52,77" Grid.ColumnSpan="2" x:Name="dpUpdateDate"/>
 
             <TextBlock Grid.Row="6" Grid.Column="0" Text="Expiration Date:" VerticalAlignment="Top" Margin="10,269,0,0"/>
             <DatePicker Grid.Row="6" Grid.Column="1" Margin="0,266,10,10"/>
 
-            <Image Grid.Row="7" Grid.Column="0" Source="/Images/settings.png" Width="50" Height="50" HorizontalAlignment="Left" Margin="30,0,0,10"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="7" TextWrapping="Wrap" Text="Icon" VerticalAlignment="Center" />
+            <Button Grid.Row="7" Grid.Column="0" Width="50" Height="50" HorizontalAlignment="Left" Margin="90,5,0,5" Background="#FFE5E5E5"
+                    BorderThickness="0">
+                <Image Source="/Images/Add Icon.png" />
+            </Button>
 
             <StackPanel Grid.Row="7" Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,10">
-                <Button Content="Submit" Width="100" Margin="5" Background="Blue" Foreground="White"/>
-                <Button Content="Cancel" Width="100" Margin="5" Background="Red" Foreground="White"/>
+                <Button Content="Submit" Width="100" Margin="5" Background="Blue" Foreground="White"
+                        x:Name="btnSubmit" Click="btnSubmit_Click"/>
+                <Button Content="Cancel" Width="100" Margin="5" Background="Red" Foreground="White"
+                        x:Name="btnCancel" Click="btnCancel_Click"/>
             </StackPanel>
             <Label Grid.Column="1" Content="Label" HorizontalAlignment="Left" Margin="212,9,0,0" Grid.Row="2" VerticalAlignment="Top"/>
         </Grid>
