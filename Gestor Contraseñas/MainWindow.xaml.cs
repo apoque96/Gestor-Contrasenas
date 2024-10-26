@@ -17,11 +17,13 @@ namespace Gestor_Contraseñas
     /// </summary>
     public partial class MainWindow : Window
     {
+        //Instance of the main menu
+        public static MainMenu mainMenu;
+
         public MainWindow()
         {
             InitializeComponent();
-            // Passes the main menu to the header
-            HeaderControl.Initialize(MainMenuControl);
+            mainMenu = MainMenuControl;
         }
     }
 }

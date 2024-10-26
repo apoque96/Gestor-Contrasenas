@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Gestor_Contraseñas.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,8 @@ namespace Gestor_Contraseñas.Views.UserControls
     /// </summary>
     public partial class MainMenu : UserControl
     {
+        private List<Account> accounts = [];
+
         public MainMenu()
         {
             InitializeComponent();
@@ -41,6 +44,12 @@ namespace Gestor_Contraseñas.Views.UserControls
         {
             MenuContent.Children.Clear();
             MenuContent.Children.Add(new AccountCard());
+        }
+
+        public void AddNewAccount(Account account)
+        {
+            accounts.Add(account);
+            MessageBox.Show(account.ToString());
         }
     }
 }

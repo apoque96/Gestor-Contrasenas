@@ -10,11 +10,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\Add Icon.png" />
     <None Remove="Images\settings.png" />
+    <None Remove="Views\UserControls\Add Icon.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\Add Icon.png" />
     <Resource Include="Images\settings.png" />
+    <Resource Include="Views\UserControls\Add Icon.png" />
   </ItemGroup>
 
 </Project>
