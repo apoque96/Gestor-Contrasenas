@@ -20,9 +20,16 @@ namespace Gestor_Contraseñas.Views.UserControls
     /// </summary>
     public partial class SettingsMenu : UserControl
     {
+        public event EventHandler ButtonClicked;
+
         public SettingsMenu()
         {
             InitializeComponent();
+        }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            ButtonClicked?.Invoke(this, EventArgs.Empty);
         }
     }
 }

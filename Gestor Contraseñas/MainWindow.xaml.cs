@@ -9,6 +9,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Gestor_Contraseñas
 {
@@ -20,10 +21,56 @@ namespace Gestor_Contraseñas
         //Instance of the main menu
         public static MainMenu mainMenu;
 
+        //Timer for opening/closing the settings menu
+        DispatcherTimer timer;
+        bool hidden = true;
+
         public MainWindow()
         {
             InitializeComponent();
             mainMenu = MainMenuControl;
+            timer = new DispatcherTimer();
+            timer.Interval = new TimeSpan(0, 0, 0, 0, 10);
+            timer.Tick += Timer_Tick;
+        }
+
+        private void Timer_Tick(object? sender, EventArgs e)
+        {
+            int difference = 15;
+
+            if (hidden)
+            {
+                SettingsColumn.Width = new GridLength(SettingsColumn.Width.Value + difference, GridUnitType.Pixel);
+
+                if(SettingsColumn.Width.Value >= 150)
+                {
+                    timer.Stop();
+                    SettingsColumn.Width = new GridLength(150, GridUnitType.Pixel);
+                    hidden = false;
+                }
+            }
+            else
+            {
+                SettingsColumn.Width = new GridLength(SettingsColumn.Width.Value - difference, GridUnitType.Pixel);
+
+                if (SettingsColumn.Width.Value <= 0)
+                {
+                    timer.Stop();
+                    SettingsColumn.Width = new GridLength(0, GridUnitType.Pixel);
+                    hidden = true;
+                }
+            }
+        }
+
+        private void HeaderControl_ButtonClicked(object sender, EventArgs e)
+        {
+            timer.Start();
+        }
+
+        private void SettingsMenuControl_ButtonClicked(object sender, EventArgs e)
+        {
+            HeaderControl.ShowSettingsButton();
+            timer.Start();
         }
     }
 }

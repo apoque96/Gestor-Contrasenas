@@ -20,9 +20,16 @@ namespace Gestor_Contraseñas.Views.UserControls
     /// </summary>
     public partial class Header : UserControl
     {
+        public event EventHandler ButtonClicked;
+
         public Header()
         {
             InitializeComponent();
+        }
+
+        public void ShowSettingsButton()
+        {
+            Settings.Visibility = Visibility.Visible;
         }
 
         private void NewAccount_Click(object sender, RoutedEventArgs e)
@@ -43,6 +50,12 @@ namespace Gestor_Contraseñas.Views.UserControls
         private void Home_Click(object sender, RoutedEventArgs e)
         {
             MainWindow.mainMenu.SwitchToHome();
+        }
+
+        private void Settings_Click(object sender, RoutedEventArgs e)
+        {
+            Settings.Visibility = Visibility.Collapsed;
+            ButtonClicked?.Invoke(this, EventArgs.Empty);
         }
     }
 }
