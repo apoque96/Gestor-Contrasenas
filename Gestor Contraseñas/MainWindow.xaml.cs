@@ -25,19 +25,48 @@ namespace Gestor_Contraseñas
 
         //Timer for opening/closing the settings menu
         DispatcherTimer timer;
+        DispatcherTimer idleTimer;
         bool hidden = true;
+        bool block = false;
 
         public MainWindow()
         {
             InitializeComponent();
             mainMenu = MainMenuControl;
+            // Used for the opening/closing settings menu animation
             timer = new DispatcherTimer();
             timer.Interval = new TimeSpan(0, 0, 0, 0, 10);
             timer.Tick += Timer_Tick;
             settings = new Settings();
             settings.ReadSettings();
+            // Checks inactivity every second
+            idleTimer = new DispatcherTimer();
+            idleTimer.Interval = new TimeSpan(0, 0, 1);
+            idleTimer.Tick += Idle_Tick;
+            idleTimer.Start();
         }
 
+        private void Idle_Tick(object? sender, EventArgs e)
+        {
+            var idleTime = IdleTimeDetector.GetIdleTimeInfo();
+
+            //Idle
+            if (idleTime.IdleTime.TotalSeconds >= settings.inactivityTimeSeconds)
+            {
+                MainGridColumn.Width = new GridLength(0, GridUnitType.Star);
+                BlockGridColumn.Width = new GridLength(1, GridUnitType.Star);
+                block = true;
+            }
+            //Not idle
+            else if (block)
+            {
+                MainGridColumn.Width = new GridLength(1, GridUnitType.Star);
+                BlockGridColumn.Width = new GridLength(0, GridUnitType.Star);
+                block = false;
+            }
+        }
+
+        // Opens/Closes the settings menu
         private void Timer_Tick(object? sender, EventArgs e)
         {
             int difference = 15;
