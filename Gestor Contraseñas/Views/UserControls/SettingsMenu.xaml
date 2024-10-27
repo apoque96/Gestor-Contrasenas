@@ -27,7 +27,8 @@
                 </TextBlock>
             </Border>
 
-            <TextBox BorderBrush="DimGray" BorderThickness="0 0 0 1.5" Background="#262626" Margin="5"/>
+            <TextBox BorderBrush="DimGray" BorderThickness="0 0 0 1.5" Foreground="WhiteSmoke"
+                     Background="#262626" Margin="5" x:Name="tbClipboardTime" />
         </StackPanel>
 
         <StackPanel Grid.Row="2" >
@@ -38,7 +39,8 @@
                 </TextBlock>
             </Border>
 
-            <TextBox BorderBrush="DimGray" BorderThickness="0 0 0 1.5" Background="#262626" Margin="5"/>
+            <TextBox BorderBrush="DimGray" BorderThickness="0 0 0 1.5" Foreground="WhiteSmoke" 
+                     Background="#262626" Margin="5" x:Name="tbInactivityTime"/>
         </StackPanel>
 
         <StackPanel Grid.Row="3" >
@@ -49,11 +51,12 @@
                 </TextBlock>
             </Border>
 
-            <TextBox BorderBrush="DimGray" BorderThickness="0 0 0 1.5" Background="#262626" Margin="5"/>
+            <TextBox BorderBrush="DimGray" BorderThickness="0 0 0 1.5" Foreground="WhiteSmoke"
+                     Background="#262626" Margin="5" x:Name="tbMasterKey" />
         </StackPanel>
 
         <Button Grid.Row="4" Background="#0F62FE" Margin="10 10 10 10" Foreground="WhiteSmoke" 
-        Name="NewAccount" Height="30" VerticalAlignment="Top" BorderBrush="Transparent">
+            Height="30" VerticalAlignment="Top" BorderBrush="Transparent" x:Name="Save" Click="Save_Click">
             Save Changes
         </Button>
     </Grid>

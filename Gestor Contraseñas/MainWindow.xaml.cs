@@ -1,4 +1,5 @@
-﻿using Gestor_Contraseñas.Views.UserControls;
+﻿using Gestor_Contraseñas.Models;
+using Gestor_Contraseñas.Views.UserControls;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,6 +21,7 @@ namespace Gestor_Contraseñas
     {
         //Instance of the main menu
         public static MainMenu mainMenu;
+        public static Settings settings;
 
         //Timer for opening/closing the settings menu
         DispatcherTimer timer;
@@ -32,6 +34,8 @@ namespace Gestor_Contraseñas
             timer = new DispatcherTimer();
             timer.Interval = new TimeSpan(0, 0, 0, 0, 10);
             timer.Tick += Timer_Tick;
+            settings = new Settings();
+            settings.ReadSettings();
         }
 
         private void Timer_Tick(object? sender, EventArgs e)
@@ -67,7 +71,13 @@ namespace Gestor_Contraseñas
             timer.Start();
         }
 
-        private void SettingsMenuControl_ButtonClicked(object sender, EventArgs e)
+        private void SettingsMenuControl_ExitButtonClicked(object sender, EventArgs e)
+        {
+            HeaderControl.ShowSettingsButton();
+            timer.Start();
+        }
+
+        private void SettingsMenuControl_SaveButtonClicked(object sender, EventArgs e)
         {
             HeaderControl.ShowSettingsButton();
             timer.Start();

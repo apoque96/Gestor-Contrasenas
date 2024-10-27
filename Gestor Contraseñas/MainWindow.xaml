@@ -12,7 +12,9 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <usercontrols:SettingsMenu  Width="150" x:Name="SettingsMenuControl" ButtonClicked="SettingsMenuControl_ButtonClicked"/>
+        <usercontrols:SettingsMenu  Width="150" x:Name="SettingsMenuControl" 
+                                    ExitButtonClicked="SettingsMenuControl_ExitButtonClicked" 
+                                    SaveButtonClicked="SettingsMenuControl_SaveButtonClicked"/>
 
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>

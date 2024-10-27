@@ -20,7 +20,8 @@ namespace Gestor_Contraseñas.Views.UserControls
     /// </summary>
     public partial class SettingsMenu : UserControl
     {
-        public event EventHandler ButtonClicked;
+        public event EventHandler ExitButtonClicked;
+        public event EventHandler SaveButtonClicked;
 
         public SettingsMenu()
         {
@@ -29,7 +30,50 @@ namespace Gestor_Contraseñas.Views.UserControls
 
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
-            ButtonClicked?.Invoke(this, EventArgs.Empty);
+            ExitButtonClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+            uint clipboardTime;
+            uint inactivityTime;
+            string masterKey = tbMasterKey.Text;
+            // Creates custom messages to display when clipboard and inactivity time are invalid
+            try
+            {
+                clipboardTime = uint.Parse(tbClipboardTime.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Clipboard Time can't be negative");
+                return;
+            }
+
+            try
+            {
+                inactivityTime = uint.Parse(tbInactivityTime.Text);
+                if (inactivityTime < 10)
+                    throw new ArgumentException();
+            }
+            catch
+            {
+                MessageBox.Show("Inactivity Time should be greater than 10");
+                return;
+            }
+
+            try
+            {
+                Settings settings = new(clipboardTime, inactivityTime, masterKey);
+                MainWindow.settings = settings;
+                SaveButtonClicked?.Invoke(this, EventArgs.Empty);
+                tbClipboardTime.Clear();
+                tbInactivityTime.Clear();
+                tbMasterKey.Clear();
+            }
+            catch(Exception ex) 
+            {
+                    MessageBox.Show(ex.Message);
+            }
         }
     }
 }
