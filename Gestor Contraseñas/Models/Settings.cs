@@ -40,11 +40,11 @@ public class Settings
                 string json = r.ReadToEnd();
                 var settings = JsonSerializer.Deserialize<Settings>(json);
 
-                if (masterKey.Length != 8)
+                if (settings.masterKey.Length != 8)
                     throw new ArgumentException("Invalid master key length");
-                if (clipboardTimeSeconds < 0)
+                if (settings.clipboardTimeSeconds < 0)
                     throw new ArgumentException("Clipboard Time can't be negative");
-                if (inactivityTimeSeconds < 10)
+                if (settings.inactivityTimeSeconds < 10)
                     throw new ArgumentException("Inactivity Time should be greater than 10");
 
                 this.clipboardTimeSeconds = settings.clipboardTimeSeconds;
