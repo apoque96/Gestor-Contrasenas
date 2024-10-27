@@ -8,7 +8,7 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <StackPanel Orientation="Horizontal" Background="Black">
-            <Button  Background="Black" Margin="10 10 10 10">
+            <Button  Background="Black" Margin="10 10 10 10" x:Name="Settings" Click="Settings_Click">
                 <Image Source="/Images/settings.png"  />
             </Button>
             <Button Background="Black" Margin="10 10 10 10" Foreground="WhiteSmoke" 
